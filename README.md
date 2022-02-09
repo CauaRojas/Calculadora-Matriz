@@ -1,3 +1,3 @@
 # Calculadora-Matriz
 
-## Calculadora com foco estudantil para realizar calculos de matrizes
+## Calculadora com foco estudantil para realizar cálculos de matrizes
