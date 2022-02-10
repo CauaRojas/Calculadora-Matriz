@@ -16,10 +16,10 @@ class Matriz {
 
 				numbers2[i];
 				this.numbers[i];
-				n++
+				n++;
 			}
 		
-			i++
+			i++;
         }
 		
     }
