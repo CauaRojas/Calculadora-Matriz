@@ -1,3 +1,3 @@
 class Matriz {
-	constructor(public Numbers: Array<Array<Number>>) {}
+	constructor(public numbers: Array<Array<Number>>) {}
 }
