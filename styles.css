@@ -5,4 +5,11 @@ background: radial-gradient(circle, rgba(1,0,255,1) 0%, rgba(255,255,255,1) 100%
 
 h1{
 margin-left: 40vw;
+margin-right: 40vh;
+}
+
+div{
+    margin-left: 45vw;
+margin-right: 35vw;
+margin-top: 30vh;
 }
