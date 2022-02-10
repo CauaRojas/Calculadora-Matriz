@@ -1,1 +1,3 @@
-console.log('hello world');
+class Matriz {
+	constructor(public Numbers: Array<Array<Number>>) {}
+}
