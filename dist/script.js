@@ -13,7 +13,7 @@ const divs = [leftDiv, rightDiv];
 console.log(divs);
 const addCollumn = () => {
     divs.forEach((div) => {
-        const divChildren = Array.from(document.querySelectorAll('#' + div?.id + ' *'));
+        const divChildren = [...div?.children];
         divChildren.forEach((childDiv) => {
             const input = document.createElement('input');
             input.type = 'number';
@@ -23,7 +23,7 @@ const addCollumn = () => {
 };
 const addRow = () => {
     divs.forEach((div) => {
-        const divChildren = Array.from(document.querySelectorAll('#' + div?.id + ' *'));
+        const divChildren = [...div?.children];
         const newRow = document.createElement('div');
         newRow.className = 'row';
         for (let i = 1; i <= divChildren[0].childElementCount; i++) {
