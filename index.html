@@ -9,13 +9,27 @@
 		<title>Calculadora de Matrizes</title>
 	</head>
 	<body>
-		<h1>Calculadora de Matrizes</h1>
+		<header>
+			<h1>Calculadora de Matrizes</h1>
+			<button id="buttonRow">Adicionar Linha</button>
+			<button id="buttonCollumn">Adicionar Coluna</button>
+		</header>
 		<main>
-			<div>
-				<input />
+			<div id="left" class="side">
+				<div class="row">
+					<input type="number" />
+				</div>
 			</div>
-			<div>
-				<input />
+			<select name="operation" id="operation">
+				<option value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+			</select>
+			<div id="right" class="side">
+				<div class="row">
+					<input type="number" />
+				</div>
 			</div>
 		</main>
 	</body>
