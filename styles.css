@@ -1,3 +1,8 @@
+body{
+    background: rgb(1,0,255);
+background: radial-gradient(circle, rgba(1,0,255,1) 0%, rgba(255,255,255,1) 100%);
+}
+
 h1{
-margin-left: 50vw;
+margin-left: 40vw;
 }
