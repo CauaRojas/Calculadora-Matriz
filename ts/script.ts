@@ -1,2 +1,1 @@
-import nome from './matrix';
-nome();
+console.log('hello world');

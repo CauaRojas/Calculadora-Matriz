@@ -1,2 +1,2 @@
-import nome from './matrix';
-nome();
+"use strict";
+console.log('hello world');
