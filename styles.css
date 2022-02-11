@@ -33,3 +33,9 @@ section {
 .full {
 	width: 60%;
 }
+article {
+	display: flex;
+	justify-content: center;
+	gap: 1%;
+	
+}
