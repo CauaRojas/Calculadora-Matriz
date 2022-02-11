@@ -59,3 +59,4 @@ buttonCollumn.addEventListener('click', addCollumn);
 buttonRow.addEventListener('click', addRow);
 buttonSwitch.addEventListener('click', changeOperation);
 console.log(addCollumn);
+
