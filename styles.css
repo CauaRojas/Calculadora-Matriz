@@ -25,3 +25,11 @@ input {
 .invisible {
 	display: none;
 }
+section {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+.full {
+	width: 60%;
+}
