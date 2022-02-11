@@ -5,12 +5,29 @@ class Matriz {
         this.numbers = numbers;
     }
 }
+let viewIsOperation = true;
 const buttonRow = document.querySelector('#buttonRow');
 const buttonCollumn = document.querySelector('#buttonCollumn');
+const buttonSwitch = document.querySelector('#switch');
 const leftDiv = document.querySelector('div#left');
 const rightDiv = document.querySelector('div#right');
+const section = document.querySelector('section');
+const mainDiv = document.querySelector('main');
 const divs = [leftDiv, rightDiv];
-console.log(divs);
+const changeOperation = () => {
+    if (viewIsOperation) {
+        buttonSwitch.textContent = 'Fazer Operações Basicas';
+        section?.classList.remove('invisible');
+        mainDiv?.classList.add('invisible');
+        viewIsOperation = !viewIsOperation;
+    }
+    else if (!viewIsOperation) {
+        buttonSwitch.textContent = 'Calcular Determinante';
+        section?.classList.add('invisible');
+        mainDiv?.classList.remove('invisible');
+        viewIsOperation = !viewIsOperation;
+    }
+};
 const addCollumn = () => {
     divs.forEach((div) => {
         const divChildren = [...div?.children];
@@ -36,6 +53,7 @@ const addRow = () => {
 };
 buttonCollumn.addEventListener('click', addCollumn);
 buttonRow.addEventListener('click', addRow);
+buttonSwitch.addEventListener('click', changeOperation);
 console.log(addCollumn);
     Matriz.prototype.sum = function (numbers2) {
         var resultingArray;
