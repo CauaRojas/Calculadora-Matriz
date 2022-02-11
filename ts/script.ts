@@ -2,15 +2,33 @@ class Matriz {
 	constructor(public numbers: Array<Array<Number>>) {}
 }
 
+let viewIsOperation = true;
+
 const buttonRow = document.querySelector('#buttonRow') as HTMLButtonElement;
 const buttonCollumn = document.querySelector(
 	'#buttonCollumn'
 ) as HTMLButtonElement;
+const buttonSwitch = document.querySelector('#switch') as HTMLButtonElement;
 
 const leftDiv = document.querySelector('div#left');
 const rightDiv = document.querySelector('div#right');
+const section = document.querySelector('section');
+const mainDiv = document.querySelector('main');
 const divs = [leftDiv, rightDiv];
-console.log(divs);
+
+const changeOperation = () => {
+	if (viewIsOperation) {
+		buttonSwitch.textContent = 'Fazer Operações Basicas';
+		section?.classList.remove('invisible');
+		mainDiv?.classList.add('invisible');
+		viewIsOperation = !viewIsOperation;
+	} else if (!viewIsOperation) {
+		buttonSwitch.textContent = 'Calcular Determinante';
+		section?.classList.add('invisible');
+		mainDiv?.classList.remove('invisible');
+		viewIsOperation = !viewIsOperation;
+	}
+};
 
 const addCollumn = () => {
 	divs.forEach((div) => {
@@ -38,4 +56,5 @@ const addRow = () => {
 
 buttonCollumn.addEventListener('click', addCollumn);
 buttonRow.addEventListener('click', addRow);
+buttonSwitch.addEventListener('click', changeOperation);
 console.log(addCollumn);

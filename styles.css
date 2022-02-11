@@ -22,3 +22,6 @@ input {
 	display: flex;
 	flex-direction: row;
 }
+.invisible {
+	display: none;
+}
