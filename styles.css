@@ -9,13 +9,19 @@ h1 {
 main {
 	display: flex;
 	flex-direction: row;
-
 	justify-content: space-around;
 }
 input {
 	width: 100%;
 	font-size: 2rem;
 }
-div {
+.side {
 	width: 40%;
+}
+.row {
+	display: flex;
+	flex-direction: row;
+}
+.invisible {
+	display: none;
 }
