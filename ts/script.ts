@@ -1,6 +1,31 @@
 class Matriz {
-	constructor(public numbers: Array<Array<Number>>) {}
+	constructor(public numbers: Array<Array<number>>) {}
+
+    sum(numbers2: Array<Array<number>>){
+        var resultingArray: Array<Array<number>>;
+        resultingArray = Array(Array());
+        
+        if(this.numbers.length !== numbers2.length){
+            console.log("the arrays haven't the same length");
+            return;
+        }
+        
+        var i = 0;
+
+        while(this.numbers.length > i){
+            var c = 0;
+            var intermed:Array<number> = Array();
+            while(this.numbers[i].length >= c){
+                intermed[i]= this.numbers[i][c] + numbers2[i][c];
+                c++;
+            }
+            resultingArray[i] = intermed;
+            i++;
+        }
+        return resultingArray;
+    }
 }
+module.exports = Matriz;
 
 const buttonRow = document.querySelector('#buttonRow') as HTMLButtonElement;
 const buttonCollumn = document.querySelector(
