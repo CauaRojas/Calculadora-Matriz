@@ -15,8 +15,8 @@ class Matriz {
 		while (this.numbers.length > count1) {
 			var count2 = 0;
 			var intermed: Array<number> = Array();
-			while (this.numbers[count1].length >= count2) {
-				intermed[count1] =
+			while (this.numbers[count1].length > count2) {
+				intermed[count2] =
 					this.numbers[count1][count2] + numbers2[count1][count2];
 				count2++;
 			}
@@ -40,8 +40,8 @@ class Matriz {
 		while (this.numbers.length > count1) {
 			var count2 = 0;
 			var intermed: Array<number> = Array();
-			while (this.numbers[count1].length >= count2) {
-				intermed[count1] =
+			while (this.numbers[count1].length > count2) {
+				intermed[count2] =
 					this.numbers[count1][count2] - numbers2[count1][count2];
 				count2++;
 			}
