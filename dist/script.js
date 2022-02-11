@@ -81,3 +81,26 @@ buttonCollumn.addEventListener('click', addCollumn);
 buttonRow.addEventListener('click', addRow);
 buttonSwitch.addEventListener('click', changeOperation);
 console.log(addCollumn);
+    Matriz.prototype.sum = function (numbers2) {
+        var resultingArray;
+        resultingArray = Array(Array());
+        if (this.numbers.length !== numbers2.length) {
+            console.log("the arrays haven't the same length");
+            return;
+        }
+        var i = 0;
+        while (this.numbers.length > i) {
+            var c = 0;
+            var intermed = Array();
+            while (this.numbers[i].length >= c) {
+                intermed[i] = this.numbers[i][c] + numbers2[i][c];
+                c++;
+            }
+            resultingArray[i] = intermed;
+            i++;
+        }
+        return resultingArray;
+    };
+    return Matriz;
+}());
+module.exports = Matriz;
