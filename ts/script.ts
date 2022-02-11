@@ -6,22 +6,6 @@ class Matriz {
 			console.log("the arrays haven't the same length");
 			return;
 		}
-	
-		var i = 0;
-	
-		while(this.numbers.length >= i){
-	
-			var n = 0;
-			while(this.numbers[n].length >= n){
-	
-				numbers2[i][n];
-				this.numbers[i][n];
-				n++;
-			}
-		
-			i++;
-		}
-		
 	}
 }
 
