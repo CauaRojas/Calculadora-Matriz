@@ -96,20 +96,27 @@ const addCollumn = () => {
 			});
 		});
 	} else if (!viewIsOperation) {
-		console.log(fullDiv);
-
 		const divChildren = [...(fullDiv?.children as unknown as Element[])];
 		divChildren.forEach((childDiv) => {
 			const input = document.createElement('input');
 			input.type = 'number';
 			childDiv.appendChild(input);
 		});
+		const newRow = document.createElement('div');
+		newRow.className = 'row';
+		for (let i = 1; i <= divChildren[0].childElementCount; i++) {
+			const newInput = document.createElement('input');
+			newInput.type = 'number';
+			newRow.appendChild(newInput);
+		}
+		fullDiv?.appendChild(newRow);
 	}
 };
 const addRow = () => {
 	if (viewIsOperation) {
 		divs.forEach((div) => {
 			const divChildren = [...(div?.children as unknown as Element[])];
+
 			const newRow = document.createElement('div');
 			newRow.className = 'row';
 			for (let i = 1; i <= divChildren[0].childElementCount; i++) {
@@ -121,6 +128,11 @@ const addRow = () => {
 		});
 	} else if (!viewIsOperation) {
 		const divChildren = [...(fullDiv?.children as unknown as Element[])];
+		divChildren.forEach((childDiv) => {
+			const input = document.createElement('input');
+			input.type = 'number';
+			childDiv.appendChild(input);
+		});
 		const newRow = document.createElement('div');
 		newRow.className = 'row';
 		for (let i = 1; i <= divChildren[0].childElementCount; i++) {
