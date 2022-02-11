@@ -1,55 +1,57 @@
 class Matriz {
 	constructor(public numbers: Array<Array<number>>) {}
 
-    sum(numbers2: Array<Array<number>>){
-        var resultingArray: Array<Array<number>>;
-        resultingArray = Array(Array());
-        
-        if(this.numbers.length !== numbers2.length){
-            console.log("the arrays haven't the same length");
-            return;
-        }
-        
-        var count1 = 0;
+	sum(numbers2: Array<Array<number>>) {
+		var resultingArray: Array<Array<number>>;
+		resultingArray = Array(Array());
 
-        while(this.numbers.length > count1){
-            var count2 = 0;
-            var intermed:Array<number> = Array();
-            while(this.numbers[count1].length >= count2){
-                intermed[count1]= this.numbers[count1][count2] + numbers2[count1][count2];
-            	count2++;
-            }
-            resultingArray[count1] = intermed;
-            count1++;
-        }
-        return resultingArray;
-    }
+		if (this.numbers.length !== numbers2.length) {
+			console.log("the arrays haven't the same length");
+			return;
+		}
 
-	sub(numbers2: Array<Array<number>>){
-        var resultingArray: Array<Array<number>>;
-        resultingArray = Array(Array());
-        
-        if(this.numbers.length !== numbers2.length){
-            console.log("the arrays haven't the same length");
-            return;
-        }
-        
-        var count1 = 0;
+		var count1 = 0;
 
-        while(this.numbers.length > count1){
-            var count2 = 0;
-            var intermed:Array<number> = Array();
-            while(this.numbers[count1].length >= count2){
-                intermed[count1]= this.numbers[count1][count2] - numbers2[count1][count2];
-            	count2++;
-            }
-            resultingArray[count1] = intermed;
-            count1++;
-        }
-        return resultingArray;
-    }
+		while (this.numbers.length > count1) {
+			var count2 = 0;
+			var intermed: Array<number> = Array();
+			while (this.numbers[count1].length >= count2) {
+				intermed[count1] =
+					this.numbers[count1][count2] + numbers2[count1][count2];
+				count2++;
+			}
+			resultingArray[count1] = intermed;
+			count1++;
+		}
+		return resultingArray;
+	}
+
+	sub(numbers2: Array<Array<number>>) {
+		var resultingArray: Array<Array<number>>;
+		resultingArray = Array(Array());
+
+		if (this.numbers.length !== numbers2.length) {
+			console.log("the arrays haven't the same length");
+			return;
+		}
+
+		var count1 = 0;
+
+		while (this.numbers.length > count1) {
+			var count2 = 0;
+			var intermed: Array<number> = Array();
+			while (this.numbers[count1].length >= count2) {
+				intermed[count1] =
+					this.numbers[count1][count2] - numbers2[count1][count2];
+				count2++;
+			}
+			resultingArray[count1] = intermed;
+			count1++;
+		}
+		return resultingArray;
+	}
 }
-module.exports = Matriz;
+//module.exports = Matriz;
 
 let viewIsOperation = true;
 

@@ -4,7 +4,50 @@ class Matriz {
     constructor(numbers) {
         this.numbers = numbers;
     }
+    sum(numbers2) {
+        var resultingArray;
+        resultingArray = Array(Array());
+        if (this.numbers.length !== numbers2.length) {
+            console.log("the arrays haven't the same length");
+            return;
+        }
+        var count1 = 0;
+        while (this.numbers.length > count1) {
+            var count2 = 0;
+            var intermed = Array();
+            while (this.numbers[count1].length >= count2) {
+                intermed[count1] =
+                    this.numbers[count1][count2] + numbers2[count1][count2];
+                count2++;
+            }
+            resultingArray[count1] = intermed;
+            count1++;
+        }
+        return resultingArray;
+    }
+    sub(numbers2) {
+        var resultingArray;
+        resultingArray = Array(Array());
+        if (this.numbers.length !== numbers2.length) {
+            console.log("the arrays haven't the same length");
+            return;
+        }
+        var count1 = 0;
+        while (this.numbers.length > count1) {
+            var count2 = 0;
+            var intermed = Array();
+            while (this.numbers[count1].length >= count2) {
+                intermed[count1] =
+                    this.numbers[count1][count2] - numbers2[count1][count2];
+                count2++;
+            }
+            resultingArray[count1] = intermed;
+            count1++;
+        }
+        return resultingArray;
+    }
 }
+//module.exports = Matriz;
 let viewIsOperation = true;
 const buttonRow = document.querySelector('#buttonRow');
 const buttonCollumn = document.querySelector('#buttonCollumn');
@@ -79,28 +122,6 @@ const addRow = () => {
 };
 buttonCollumn.addEventListener('click', addCollumn);
 buttonRow.addEventListener('click', addRow);
+console.log(addCollumn);
 buttonSwitch.addEventListener('click', changeOperation);
 console.log(addCollumn);
-    Matriz.prototype.sum = function (numbers2) {
-        var resultingArray;
-        resultingArray = Array(Array());
-        if (this.numbers.length !== numbers2.length) {
-            console.log("the arrays haven't the same length");
-            return;
-        }
-        var i = 0;
-        while (this.numbers.length > i) {
-            var c = 0;
-            var intermed = Array();
-            while (this.numbers[i].length >= c) {
-                intermed[i] = this.numbers[i][c] + numbers2[i][c];
-                c++;
-            }
-            resultingArray[i] = intermed;
-            i++;
-        }
-        return resultingArray;
-    };
-    return Matriz;
-}());
-module.exports = Matriz;
