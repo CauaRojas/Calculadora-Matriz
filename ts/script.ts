@@ -50,7 +50,34 @@ class Matriz {
 		}
 		return resultingArray;
 	}
-	
+	div(numbers2: Array<Array<number>>){
+		var resltingArray: Array<Array<number>>;
+		resltingArray = Array(Array());
+
+		if (this.numbers.length !== numbers2.length) {
+			console.log("the array haven't the same length");
+			return;
+		}
+
+		var count1 = 0;
+
+		while (this.numbers.length > count1) {
+			var count2 = 0;
+			var intermed: Array<number> = Array();
+			while (this.numbers[count1].length > count2) {
+				var reverse: Array<Array<number>> = Array() ;
+				var count3 = numbers2.length
+				reverse[count1][count2] = numbers2[count3][count3];
+				count3--
+				intermed[count2] =
+					this.numbers[count1][count2] * reverse[count1][count2];
+				count2++;
+			}
+			resltingArray[count1] = intermed;
+			count1++;
+		}
+		return resltingArray;
+	}
 }
 //module.exports = Matriz;
 
