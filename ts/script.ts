@@ -50,6 +50,7 @@ class Matriz {
 		}
 		return resultingArray;
 	}
+	
 }
 //module.exports = Matriz;
 
