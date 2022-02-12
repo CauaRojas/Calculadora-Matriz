@@ -1,20 +1,48 @@
 class Matriz {
 	constructor(public numbers: Array<Array<number>>) {}
 
-	sum(numbers2: Array<Array<number>>) {
-		var resultingArray: Array<Array<number>>;
+	public get rows() {
+		let firstRow = this.numbers.length;
+		let lastRow: number;
+		this.numbers.forEach((row) => {
+			if (lastRow === undefined) lastRow = row.length;
+			if (lastRow !== row.length)
+				throw new Error('Matrix is not retangular');
+			lastRow = row.length;
+		});
+
+		return firstRow;
+	}
+
+	public isValid = true;
+
+	public get collums() {
+		let firstCollumn = this.numbers[0].length;
+		let lastRow: number;
+		this.numbers.forEach((row) => {
+			if (lastRow === undefined) lastRow = row.length;
+			if (lastRow !== row.length)
+				throw new Error('Matrix is not retangular');
+			lastRow = row.length;
+		});
+
+		return firstCollumn;
+	}
+
+	sum(Matriz2: Matriz) {
+		let numbers2 = Matriz2.numbers;
+		let resultingArray: Array<Array<number>>;
 		resultingArray = Array(Array());
 
-		if (this.numbers.length !== numbers2.length) {
-			console.log("the arrays haven't the same length");
-			return;
+		if (this.rows !== Matriz2.rows || this.collums !== Matriz2.collums) {
+			throw new Error("The matrices don't have the same length");
 		}
 
-		var count1 = 0;
+		let count1 = 0;
 
 		while (this.numbers.length > count1) {
-			var count2 = 0;
-			var intermed: Array<number> = Array();
+			let count2 = 0;
+			let intermed: Array<number> = Array();
 			while (this.numbers[count1].length > count2) {
 				intermed[count2] =
 					this.numbers[count1][count2] + numbers2[count1][count2];
@@ -23,23 +51,23 @@ class Matriz {
 			resultingArray[count1] = intermed;
 			count1++;
 		}
-		return resultingArray;
+		return new Matriz(resultingArray);
 	}
 
-	sub(numbers2: Array<Array<number>>) {
-		var resultingArray: Array<Array<number>>;
+	sub(Matriz2: Matriz) {
+		let numbers2 = Matriz2.numbers;
+		let resultingArray: Array<Array<number>>;
 		resultingArray = Array(Array());
 
-		if (this.numbers.length !== numbers2.length) {
-			console.log("the arrays haven't the same length");
-			return;
+		if (this.rows !== Matriz2.rows || this.collums !== Matriz2.collums) {
+			throw new Error("The matrices don't have the same length");
 		}
 
-		var count1 = 0;
+		let count1 = 0;
 
 		while (this.numbers.length > count1) {
-			var count2 = 0;
-			var intermed: Array<number> = Array();
+			let count2 = 0;
+			let intermed: Array<number> = Array();
 			while (this.numbers[count1].length > count2) {
 				intermed[count2] =
 					this.numbers[count1][count2] - numbers2[count1][count2];
@@ -48,27 +76,28 @@ class Matriz {
 			resultingArray[count1] = intermed;
 			count1++;
 		}
-		return resultingArray;
+		return new Matriz(resultingArray);
 	}
-	div(numbers2: Array<Array<number>>){
-		var resultingArray: Array<Array<number>>;
+	div(Matriz2: Matriz) {
+		let numbers2 = Matriz2.numbers;
+		let resultingArray: Array<Array<number>>;
 		resultingArray = Array(Array());
 
-		if (this.numbers.length !== numbers2.length) {
+		if (this.rows !== Matriz2.rows || this.collums !== Matriz2.collums) {
 			console.log("the array haven't the same length");
 			return;
 		}
 
-		var count1 = 0;
+		let count1 = 0;
 
 		while (this.numbers.length > count1) {
-			var count2 = 0;
-			var intermed: Array<number> = Array();
+			let count2 = 0;
+			let intermed: Array<number> = Array();
 			while (this.numbers[count1].length > count2) {
-				var reverse: Array<Array<number>> = Array() ;
-				var count3 = numbers2.length
+				let reverse: Array<Array<number>> = Array();
+				let count3 = numbers2.length;
 				reverse[count1][count2] = numbers2[count3][count3];
-				count3--
+				count3--;
 				intermed[count2] =
 					this.numbers[count1][count2] * reverse[count1][count2];
 				count2++;
@@ -76,43 +105,68 @@ class Matriz {
 			resultingArray[count1] = intermed;
 			count1++;
 		}
-		return resultingArray;
+		return new Matriz(resultingArray);
 	}
 	//cuidado com o loop infinito, não testa essa função
 	//ela ta incompleta tbm
-	multi(numbers2: Array<Array<number>>) {
-		var resultingArray: Array<Array<number>>;
+	multi(Matriz2: Matriz) {
+		let numbers2 = Matriz2.numbers;
+		let resultingArray: Array<Array<number>>;
 		resultingArray = Array(Array());
 
-		if (this.numbers[0].length !== numbers2.length) {
-			console.log("the arrays haven't the same length");
+		if (this.rows !== Matriz2.rows || this.collums !== Matriz2.collums) {
+			console.log("The matrices haven't the same length");
 			return;
 		}
 
-		var count1 = 0;
-		
-		while(this.numbers.length > count1){
-			var count2 = 0;
-			var count3 = 0;
-			var intermed: Array<number> = Array();
-			
-			while(true){
-				intermed[count2] = 
-					(this.numbers[count1][count2] * numbers2[count2][count1]) 
-					+ (this.numbers[count1][count2+1] * numbers2[count2+1][count1]);
+		let count1 = 0;
+
+		while (this.numbers.length > count1) {
+			let count2 = 0;
+			let count3 = 0;
+			let intermed: Array<number> = Array();
+
+			while (true) {
+				intermed[count2] =
+					this.numbers[count1][count2] * numbers2[count2][count1] +
+					this.numbers[count1][count2 + 1] *
+						numbers2[count2 + 1][count1];
 				count2++;
 			}
-			
+
 			resultingArray[count1] = intermed;
 			count1++;
 		}
 
-		return resultingArray;
+		return new Matriz(resultingArray);
+	}
+
+	fillDiv(div: HTMLDivElement) {
+		let row = 0;
+		let collum = 0;
+		let childrenDiv = [
+			...(div.children as unknown as Element[] as HTMLDivElement[]),
+		];
+		childrenDiv.forEach((rowDiv) => {
+			collum = 0;
+			const inputs = [
+				...(rowDiv.children as unknown as HTMLInputElement[]),
+			];
+			inputs.forEach((input) => {
+				input.value = this.numbers[row][collum].toString();
+				collum++;
+			});
+			row++;
+		});
 	}
 }
 //module.exports = Matriz;
 
 let viewIsOperation = true;
+let teste = new Matriz([
+	[2, 2, 2, 2],
+	[2, 2, 2, 2],
+]);
 
 const buttonRow = document.querySelector('#buttonRow') as HTMLButtonElement;
 const buttonCollumn = document.querySelector(
@@ -122,6 +176,7 @@ const buttonSwitch = document.querySelector('#switch') as HTMLButtonElement;
 const buttonCalculate = document.querySelector(
 	'#calculate'
 ) as HTMLButtonElement;
+const select = document.querySelector('select');
 
 const leftDiv = document.querySelector('div#left');
 const rightDiv = document.querySelector('div#right');
@@ -203,8 +258,70 @@ const addRow = () => {
 	}
 };
 
+const createMatrizFromInput = (div: HTMLDivElement): Matriz => {
+	let arrayOfInputs: Array<Array<number>> = [];
+	let isValid = true;
+	let childrenDiv = [
+		...(div.children as unknown as Element[] as HTMLDivElement[]),
+	];
+
+	childrenDiv.forEach((rowDiv) => {
+		const inputs = [...(rowDiv.children as unknown as HTMLInputElement[])];
+		let row: Array<number> = [];
+		inputs.forEach((input) => {
+			if (input.value === '') isValid = false;
+			row.push(parseInt(input.value));
+		});
+		arrayOfInputs.push(row);
+	});
+
+	const newMatriz = new Matriz(arrayOfInputs);
+	newMatriz.isValid = isValid;
+	return newMatriz;
+};
+
+const calculate = () => {
+	let newMatriz: Matriz = new Matriz([]);
+	const leftMatriz = createMatrizFromInput(leftDiv as HTMLDivElement);
+	const rightMatriz = createMatrizFromInput(rightDiv as HTMLDivElement);
+	if (!leftMatriz.isValid || !rightMatriz.isValid) {
+		alert('Por favor, preencha todos os campos antes de tentar calcular');
+		throw new Error('Matrices are not valid');
+	}
+	switch (select?.value) {
+		case '+':
+			newMatriz = leftMatriz.sum(rightMatriz);
+			break;
+		case '-':
+			newMatriz = leftMatriz.sub(rightMatriz);
+			break;
+		case '*':
+			newMatriz = leftMatriz.multi(rightMatriz) as Matriz;
+			break;
+		case '/':
+			newMatriz = leftMatriz.div(rightMatriz) as Matriz;
+			break;
+		default:
+			throw new Error('Operation with matrices is invalid');
+	}
+	newMatriz.fillDiv(leftDiv as HTMLDivElement);
+	let childrenDiv = [
+		...(rightDiv?.children as unknown as Element[] as HTMLDivElement[]),
+	];
+	childrenDiv.forEach((rowDiv) => {
+		const inputs = [...(rowDiv.children as unknown as HTMLInputElement[])];
+		inputs.forEach((input) => {
+			input.value = '';
+		});
+	});
+};
+
 buttonCollumn.addEventListener('click', addCollumn);
 buttonRow.addEventListener('click', addRow);
 console.log(addCollumn);
+/* buttonSwitch.addEventListener('click', () => {
+	createMatrizFromInput(leftDiv as HTMLDivElement);
+}); */
 buttonSwitch.addEventListener('click', changeOperation);
+buttonCalculate.addEventListener('click', calculate);
 console.log(addCollumn);
