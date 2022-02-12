@@ -51,8 +51,8 @@ class Matriz {
 		return resultingArray;
 	}
 	div(numbers2: Array<Array<number>>){
-		var resltingArray: Array<Array<number>>;
-		resltingArray = Array(Array());
+		var resultingArray: Array<Array<number>>;
+		resultingArray = Array(Array());
 
 		if (this.numbers.length !== numbers2.length) {
 			console.log("the array haven't the same length");
@@ -73,10 +73,41 @@ class Matriz {
 					this.numbers[count1][count2] * reverse[count1][count2];
 				count2++;
 			}
-			resltingArray[count1] = intermed;
+			resultingArray[count1] = intermed;
 			count1++;
 		}
-		return resltingArray;
+		return resultingArray;
+	}
+	//cuidado com o loop infinito, não testa essa função
+	//ela ta incompleta tbm
+	multi(numbers2: Array<Array<number>>) {
+		var resultingArray: Array<Array<number>>;
+		resultingArray = Array(Array());
+
+		if (this.numbers[0].length !== numbers2.length) {
+			console.log("the arrays haven't the same length");
+			return;
+		}
+
+		var count1 = 0;
+		
+		while(this.numbers.length > count1){
+			var count2 = 0;
+			var count3 = 0;
+			var intermed: Array<number> = Array();
+			
+			while(true){
+				intermed[count2] = 
+					(this.numbers[count1][count2] * numbers2[count2][count1]) 
+					+ (this.numbers[count1][count2+1] * numbers2[count2+1][count1]);
+				count2++;
+			}
+			
+			resultingArray[count1] = intermed;
+			count1++;
+		}
+
+		return resultingArray;
 	}
 }
 //module.exports = Matriz;
