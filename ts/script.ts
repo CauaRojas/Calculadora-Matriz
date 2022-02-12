@@ -15,8 +15,8 @@ class Matriz {
 		while (this.numbers.length > count1) {
 			var count2 = 0;
 			var intermed: Array<number> = Array();
-			while (this.numbers[count1].length >= count2) {
-				intermed[count1] =
+			while (this.numbers[count1].length > count2) {
+				intermed[count2] =
 					this.numbers[count1][count2] + numbers2[count1][count2];
 				count2++;
 			}
@@ -40,8 +40,8 @@ class Matriz {
 		while (this.numbers.length > count1) {
 			var count2 = 0;
 			var intermed: Array<number> = Array();
-			while (this.numbers[count1].length >= count2) {
-				intermed[count1] =
+			while (this.numbers[count1].length > count2) {
+				intermed[count2] =
 					this.numbers[count1][count2] - numbers2[count1][count2];
 				count2++;
 			}
@@ -96,20 +96,27 @@ const addCollumn = () => {
 			});
 		});
 	} else if (!viewIsOperation) {
-		console.log(fullDiv);
-
 		const divChildren = [...(fullDiv?.children as unknown as Element[])];
 		divChildren.forEach((childDiv) => {
 			const input = document.createElement('input');
 			input.type = 'number';
 			childDiv.appendChild(input);
 		});
+		const newRow = document.createElement('div');
+		newRow.className = 'row';
+		for (let i = 1; i <= divChildren[0].childElementCount; i++) {
+			const newInput = document.createElement('input');
+			newInput.type = 'number';
+			newRow.appendChild(newInput);
+		}
+		fullDiv?.appendChild(newRow);
 	}
 };
 const addRow = () => {
 	if (viewIsOperation) {
 		divs.forEach((div) => {
 			const divChildren = [...(div?.children as unknown as Element[])];
+
 			const newRow = document.createElement('div');
 			newRow.className = 'row';
 			for (let i = 1; i <= divChildren[0].childElementCount; i++) {
@@ -121,6 +128,11 @@ const addRow = () => {
 		});
 	} else if (!viewIsOperation) {
 		const divChildren = [...(fullDiv?.children as unknown as Element[])];
+		divChildren.forEach((childDiv) => {
+			const input = document.createElement('input');
+			input.type = 'number';
+			childDiv.appendChild(input);
+		});
 		const newRow = document.createElement('div');
 		newRow.className = 'row';
 		for (let i = 1; i <= divChildren[0].childElementCount; i++) {
