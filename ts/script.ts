@@ -176,6 +176,7 @@ const buttonSwitch = document.querySelector('#switch') as HTMLButtonElement;
 const buttonCalculate = document.querySelector(
 	'#calculate'
 ) as HTMLButtonElement;
+const buttonClear = document.querySelector('#clear') as HTMLButtonElement;
 const select = document.querySelector('select');
 
 const leftDiv = document.querySelector('div#left');
@@ -316,6 +317,9 @@ const calculate = () => {
 	});
 };
 
+buttonClear.addEventListener('click', () => {
+	window.location.reload();
+});
 buttonCollumn.addEventListener('click', addCollumn);
 buttonRow.addEventListener('click', addRow);
 console.log(addCollumn);
