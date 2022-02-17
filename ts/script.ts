@@ -54,7 +54,7 @@ class Matriz {
 		return new Matriz(resultingArray);
 	}
 
-	sub(Matriz2: Matriz) {
+	subtract(Matriz2: Matriz) {
 		let numbers2 = Matriz2.numbers;
 		let resultingArray: Array<Array<number>>;
 		resultingArray = Array(Array());
@@ -78,7 +78,7 @@ class Matriz {
 		}
 		return new Matriz(resultingArray);
 	}
-	div(Matriz2: Matriz) {
+	divide(Matriz2: Matriz) {
 		let numbers2 = Matriz2.numbers;
 		let resultingArray: Array<Array<number>>;
 		resultingArray = Array(Array());
@@ -107,37 +107,44 @@ class Matriz {
 		}
 		return new Matriz(resultingArray);
 	}
-	//cuidado com o loop infinito, não testa essa função
-	//ela ta incompleta tbm
-	multi(Matriz2: Matriz) {
+	multiplicate(Matriz2: Matriz) {
 		let numbers2 = Matriz2.numbers;
-		let resultingArray: Array<Array<number>>;
-		resultingArray = Array(Array());
+		let resultingArray: Array<Array<number>> =  Array(Array());
 
-		if (this.rows !== Matriz2.rows || this.collums !== Matriz2.collums) {
+		const suming = (x: Array<number>) =>{
+			let count: number = 0;
+			let value: number = 0;
+			while(x.length > count){
+				value += x[count];
+				count++;
+			}
+			return value;
+		}
+
+		if (this.rows !== Matriz2.collums) {
 			console.log("The matrices haven't the same length");
 			return;
 		}
 
 		let count1 = 0;
+		let intermed2 = Array();
 
 		while (this.numbers.length > count1) {
-			let count2 = 0;
-			let count3 = 0;
 			let intermed: Array<number> = Array();
-
-			while (true) {
-				intermed[count2] =
-					this.numbers[count1][count2] * numbers2[count2][count1] +
-					this.numbers[count1][count2 + 1] *
-						numbers2[count2 + 1][count1];
-				count2++;
+			let count3 = 0;
+			while (numbers2[count1].length > count3){
+				let count2 = 0;
+				while(this.numbers[count1].length > count2){
+					intermed[count2] = (this.numbers[count1][count2] * numbers2[count2][count3]);
+					count2++;
+				}
+				
+				intermed2[count3] = suming(intermed);
+				count3++;
 			}
-
-			resultingArray[count1] = intermed;
 			count1++;
+			resultingArray[count1] = intermed2 ;
 		}
-
 		return new Matriz(resultingArray);
 	}
 
@@ -293,13 +300,13 @@ const calculate = () => {
 			newMatriz = leftMatriz.sum(rightMatriz);
 			break;
 		case '-':
-			newMatriz = leftMatriz.sub(rightMatriz);
+			newMatriz = leftMatriz.subtract(rightMatriz);
 			break;
 		case '*':
-			newMatriz = leftMatriz.multi(rightMatriz) as Matriz;
+			// newMatriz = leftMatriz.multiplicate(rightMatriz) as Matriz;
 			break;
 		case '/':
-			newMatriz = leftMatriz.div(rightMatriz) as Matriz;
+			newMatriz = leftMatriz.divide(rightMatriz) as Matriz;
 			break;
 		default:
 			throw new Error('Operation with matrices is invalid');
