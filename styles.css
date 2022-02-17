@@ -49,10 +49,12 @@ main {
 }
 input {
 	width: 100%;
+	height: 4rem;
 	font-size: 2rem;
 }
 .side {
 	width: 40%;
+	height: 100%;
 }
 .row {
 	display: flex;
@@ -82,4 +84,13 @@ article {
 article button {
 	font-size: 2rem;
 	width: 20%;
+}
+@media only screen and (max-width: 600px) {
+	html {
+		font-size: 8px;
+	}
+	article button {
+		font-size: 2rem;
+		width: 30%;
+	}
 }

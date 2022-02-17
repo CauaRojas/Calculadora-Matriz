@@ -153,6 +153,7 @@ const buttonRow = document.querySelector('#buttonRow');
 const buttonCollumn = document.querySelector('#buttonCollumn');
 const buttonSwitch = document.querySelector('#switch');
 const buttonCalculate = document.querySelector('#calculate');
+const buttonClear = document.querySelector('#clear');
 const select = document.querySelector('select');
 const leftDiv = document.querySelector('div#left');
 const rightDiv = document.querySelector('div#right');
@@ -288,6 +289,9 @@ const calculate = () => {
         });
     });
 };
+buttonClear.addEventListener('click', () => {
+    window.location.reload();
+});
 buttonCollumn.addEventListener('click', addCollumn);
 buttonRow.addEventListener('click', addRow);
 console.log(addCollumn);
