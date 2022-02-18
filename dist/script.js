@@ -71,6 +71,8 @@ class Matriz {
         }
         return new Matriz(resultingArray);
     }
+    //eu estou ficando louco tentando fazer isso
+    //não aguento mais
     div(Matriz2) {
         let numbers2 = Matriz2.numbers;
         let resultingArray;
