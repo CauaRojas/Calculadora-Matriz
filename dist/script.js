@@ -82,16 +82,16 @@ class Matriz {
         let count2 = 0;
         let inverse = Array(Array());
         while (this.numbers.length > count1) {
-            let intermed = Array();
+            let intermed = Array(Array());
             while (this.numbers[count1].length > count2) {
                 inverse[count1][count2] = (1 / numbers2[count1][count2]);
-                intermed[count2] =
-                    this.numbers[count1][count2] * inverse[count1][count2];
+                intermed[count1][count2] = (this.numbers[count1][count2] * inverse[count1][count2]);
                 count2++;
             }
-            resultingArray[count1] = intermed;
+            resultingArray[count1] = intermed[count1];
                 count1++;
             }
+        console.log(inverse);
         return new Matriz(resultingArray);
     }
     multiplicate(Matriz2) {
