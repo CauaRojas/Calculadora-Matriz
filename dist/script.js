@@ -71,6 +71,8 @@ class Matriz {
         }
         return new Matriz(resultingArray);
     }
+    //eu estou ficando louco tentando fazer isso
+    //não aguento mais
     div(Matriz2) {
         let numbers2 = Matriz2.numbers;
         let resultingArray;
@@ -79,20 +81,28 @@ class Matriz {
             console.log("the array haven't the same length");
             return;
         }
+
         let count1 = 0;
+        let count2 = 0;
+        let count3 = numbers2.length;
+
         while (this.numbers.length > count1) {
-            let count2 = 0;
+
             let intermed = Array();
+
             while (this.numbers[count1].length > count2) {
                 let reverse = Array();
-                let count3 = numbers2.length;
-                reverse[count1][count2] = numbers2[count3][count3];
+
+                reverse[count1][count2] = numbers2[count3][count2];
                 count3--;
+
                 intermed[count2] =
                     this.numbers[count1][count2] * reverse[count1][count2];
+
                 count2++;
             }
             resultingArray[count1] = intermed;
+            
             count1++;
         }
         return new Matriz(resultingArray);
