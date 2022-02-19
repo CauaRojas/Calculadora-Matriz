@@ -73,28 +73,25 @@ class Matriz {
     }
     divide(Matriz2) {
         let numbers2 = Matriz2.numbers;
-        let resultingArray;
-        resultingArray = Array(Array());
+        let resultingArray = Array(Array());
         if (this.rows !== Matriz2.rows || this.collums !== Matriz2.collums) {
             console.log("the array haven't the same length");
             return;
         }
         let count1 = 0;
         let count2 = 0;
-        let count3 = numbers2.length;
-        let reverse = Array();
+        let inverse = Array(Array());
         while (this.numbers.length > count1) {
             let intermed = Array();
             while (this.numbers[count1].length > count2) {
-                reverse[count1][count2] = numbers2[count3][count2];
-                count3--;
+                inverse[count1][count2] = (1 / numbers2[count1][count2]);
                 intermed[count2] =
-                    this.numbers[count1][count2] * reverse[count1][count2];
+                    this.numbers[count1][count2] * inverse[count1][count2];
                 count2++;
             }
             resultingArray[count1] = intermed;
-            count1++;
-        }
+                count1++;
+            }
         return new Matriz(resultingArray);
     }
     multiplicate(Matriz2) {
