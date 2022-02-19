@@ -114,7 +114,12 @@ class Matriz {
 	}
 	multiplicate(Matriz2: Matriz) {
 		let numbers2 = Matriz2.numbers;
-		let resultingArray: Array<Array<number>> =  Array(Array());
+		let resultingArray: Array<Array<number>> =  Array();
+		let c = 0;
+        while(this.rows > c){
+            resultingArray[c] = Array();
+            c++;
+        }
 
 		const suming = (x: Array<number>) =>{
 			let count: number = 0;
@@ -143,12 +148,10 @@ class Matriz {
 					intermed[count2] = (this.numbers[count1][count2] * numbers2[count2][count3]);
 					count2++;
 				}
-				
-				intermed2[count3] = suming(intermed);
+				resultingArray[count1][count3] = suming(intermed);
 				count3++;
 			}
 			count1++;
-			resultingArray[count1] = intermed2 ;
 		}
 		return new Matriz(resultingArray);
 	}
