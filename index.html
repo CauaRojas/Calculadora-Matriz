@@ -2,54 +2,56 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+		<link rel="stylesheet" href="./src/styles.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="styles.css" />
-		<script src="./dist/script.js" defer type="module"></script>
-		<title>Calculadora de Matrizes</title>
+		<script type="module" defer src="/src/main.ts"></script>
+		<title>Calculadora Matrizes</title>
 	</head>
 	<body>
-		<header>
-			<h1>Calculadora de Matrizes</h1>
+		<body>
+			<header>
+				<h1>Calculadora de Matrizes</h1>
+				<article>
+					<button id="buttonRow">Adicionar Linha</button>
+					<button id="buttonCollumn">Adicionar Coluna</button>
+					<button id="switch">Calcular Determinante</button>
+				</article>
+			</header>
+			<main>
+				<div id="left" class="side">
+					<div class="row">
+						<input type="number" />
+					</div>
+				</div>
+				<select name="operation" id="operation">
+					<option value="+">+</option>
+					<option value="-">-</option>
+					<option value="*">*</option>
+					<option value="/">/</option>
+				</select>
+				<div id="right" class="side">
+					<div class="row">
+						<input type="number" />
+					</div>
+				</div>
+			</main>
+			<section class="invisible">
+				<div id="full">
+					<div class="row">
+						<input type="number" />
+						<input type="number" />
+					</div>
+					<div class="row">
+						<input type="number" />
+						<input type="number" />
+					</div>
+				</div>
+			</section>
 			<article>
-				<button id="buttonRow">Adicionar Linha</button>
-				<button id="buttonCollumn">Adicionar Coluna</button>
-				<button id="switch">Calcular Determinante</button>
+				<button id="calculate">Calcular</button>
+				<button id="clear">Resetar Matrizes</button>
 			</article>
-		</header>
-		<main>
-			<div id="left" class="side">
-				<div class="row">
-					<input type="number" />
-				</div>
-			</div>
-			<select name="operation" id="operation">
-				<option value="+">+</option>
-				<option value="-">-</option>
-				<option value="*">*</option>
-				<option value="/">/</option>
-			</select>
-			<div id="right" class="side">
-				<div class="row">
-					<input type="number" />
-				</div>
-			</div>
-		</main>
-		<section class="invisible">
-			<div id="full">
-				<div class="row">
-					<input type="number" />
-					<input type="number" />
-				</div>
-				<div class="row">
-					<input type="number" />
-					<input type="number" />
-				</div>
-			</div>
-		</section>
-		<article>
-			<button id="calculate">Calcular</button>
-			<button id="clear">Resetar Matrizes</button>
-		</article>
+		</body>
 	</body>
 </html>
