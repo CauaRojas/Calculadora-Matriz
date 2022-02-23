@@ -1,14 +1,18 @@
 {
-    "compilerOptions": {
-        "module": "ES6",
-        "moduleResolution": "Classic",
-        "strict": true,
-        "target": "ESNEXT",
-        "watch": true,
-        "outDir": "./dist",
-        "downlevelIteration": true
-    },
-    "exclude": [
-        "node_modules"
-    ]
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "moduleResolution": "Node",
+    "strict": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true
+  },
+  "include": ["src"]
 }

@@ -97,7 +97,6 @@ class Matriz {
 			let intermed: Array<number> = Array();
 
 			while (this.numbers[count1].length > count2) {
-
 				reverse[count1][count2] = numbers2[count3][count2];
 				count3--;
 
@@ -114,22 +113,22 @@ class Matriz {
 	}
 	multiplicate(Matriz2: Matriz) {
 		let numbers2 = Matriz2.numbers;
-		let resultingArray: Array<Array<number>> =  Array();
+		let resultingArray: Array<Array<number>> = Array();
 		let c = 0;
-        while(this.rows > c){
-            resultingArray[c] = Array();
-            c++;
-        }
+		while (this.rows > c) {
+			resultingArray[c] = Array();
+			c++;
+		}
 
-		const suming = (x: Array<number>) =>{
+		const suming = (x: Array<number>) => {
 			let count: number = 0;
 			let value: number = 0;
-			while(x.length > count){
+			while (x.length > count) {
 				value += x[count];
 				count++;
 			}
 			return value;
-		}
+		};
 
 		if (this.rows !== Matriz2.collums) {
 			console.log("The matrices haven't the same length");
@@ -137,15 +136,16 @@ class Matriz {
 		}
 
 		let count1 = 0;
-		let intermed2 = Array();
+		//let intermed2 = Array();
 
 		while (this.numbers.length > count1) {
 			let intermed: Array<number> = Array();
 			let count3 = 0;
-			while (numbers2[count1].length > count3){
+			while (numbers2[count1].length > count3) {
 				let count2 = 0;
-				while(this.numbers[count1].length > count2){
-					intermed[count2] = (this.numbers[count1][count2] * numbers2[count2][count3]);
+				while (this.numbers[count1].length > count2) {
+					intermed[count2] =
+						this.numbers[count1][count2] * numbers2[count2][count3];
 					count2++;
 				}
 				resultingArray[count1][count3] = suming(intermed);
