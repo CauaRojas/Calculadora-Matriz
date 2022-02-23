@@ -1,3 +1,6 @@
+import matrix from 'matrix-js';
+//Use NPM RUN DEV pra iniciar o site
+
 class Matriz {
 	constructor(public numbers: Array<Array<number>>) {}
 
@@ -178,10 +181,6 @@ class Matriz {
 //module.exports = Matriz;
 
 let viewIsOperation = true;
-let teste = new Matriz([
-	[2, 2, 2, 2],
-	[2, 2, 2, 2],
-]);
 
 const buttonRow = document.querySelector('#buttonRow') as HTMLButtonElement;
 const buttonCollumn = document.querySelector(
