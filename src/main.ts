@@ -135,6 +135,14 @@ class Matriz {
 		return new Matriz(resultingArray);
 	}
 
+	determinant() {
+		let libraryMatrix = matrix(this.numbers)
+		
+		alert(libraryMatrix.det())
+
+		return new Matriz(this.numbers)
+	}
+
 	fillDiv(div: HTMLDivElement) {
 		let row = 0;
 		let collum = 0;
@@ -275,6 +283,9 @@ const calculate = () => {
 	let newMatriz: Matriz = new Matriz([]);
 	const leftMatriz = createMatrizFromInput(leftDiv as HTMLDivElement);
 	const rightMatriz = createMatrizFromInput(rightDiv as HTMLDivElement);
+	const fullMatriz = createMatrizFromInput(fullDiv as HTMLDivElement);
+	console.log(fullMatriz);
+	
 	if (!leftMatriz.isValid || !rightMatriz.isValid) {
 		alert('Por favor, preencha todos os campos antes de tentar calcular');
 		throw new Error('Matrices are not valid');
@@ -293,7 +304,7 @@ const calculate = () => {
 			newMatriz = leftMatriz.divide(rightMatriz) as Matriz;
 			break;
 		default:
-			throw new Error('Operation with matrices is invalid');
+			newMatriz = fullMatriz.determinant();
 	}
 	newMatriz.fillDiv(leftDiv as HTMLDivElement);
 	let childrenDiv = [
