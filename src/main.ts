@@ -319,3 +319,6 @@ console.log(addCollumn);
 buttonSwitch.addEventListener('click', changeOperation);
 buttonCalculate.addEventListener('click', calculate);
 console.log(addCollumn);
+
+addCollumn();
+addRow();
