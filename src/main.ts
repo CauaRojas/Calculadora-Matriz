@@ -319,7 +319,7 @@ const calculate = () => {
 				newMatriz = leftMatriz.subtract(rightMatriz);
 				break;
 			case '*':
-				// newMatriz = leftMatriz.multiplicate(rightMatriz) as Matriz;
+				newMatriz = leftMatriz.multiplicate(rightMatriz) as Matriz;
 				break;
 			case '/':
 				newMatriz = leftMatriz.divide(rightMatriz) as Matriz;
