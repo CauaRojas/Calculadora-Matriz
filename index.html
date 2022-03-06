@@ -9,49 +9,55 @@
 		<title>Calculadora Matrizes</title>
 	</head>
 	<body>
-		<body>
-			<header>
-				<h1>Calculadora de Matrizes</h1>
-				<article>
-					<button id="buttonRow">Adicionar Linha</button>
-					<button id="buttonCollumn">Adicionar Coluna</button>
-					<button id="switch">Calcular Determinante</button>
-				</article>
-			</header>
-			<main>
-				<div id="left" class="side">
-					<div class="row">
-						<input type="number" />
-					</div>
-				</div>
-				<select name="operation" id="operation">
-					<option value="+">+</option>
-					<option value="-">-</option>
-					<option value="*">*</option>
-					<option value="/">/</option>
-				</select>
-				<div id="right" class="side">
-					<div class="row">
-						<input type="number" />
-					</div>
-				</div>
-			</main>
-			<section class="invisible">
-				<div id="full">
-					<div class="row">
-						<input type="number" />
-						<input type="number" />
-					</div>
-					<div class="row">
-						<input type="number" />
-						<input type="number" />
-					</div>
-				</div>
-			</section>
+		<header>
+			<h1>Calculadora de Matrizes</h1>
 			<article>
-				<button id="calculate">Calcular</button>
-				<button id="clear">Resetar Matrizes</button>
+				<button id="buttonRow">Adicionar Linha</button>
+				<button id="buttonCollumn">Adicionar Coluna</button>
+				<button id="switch">Calcular Determinante</button>
 			</article>
-		</body>
+		</header>
+		<main>
+			<div id="left" class="side">
+				<div class="row">
+					<input type="number" />
+				</div>
+			</div>
+			<select name="operation" id="operation">
+				<option value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+			</select>
+			<div id="right" class="side">
+				<div class="row">
+					<input type="number" />
+				</div>
+			</div>
+		</main>
+		<section class="invisible">
+			<div id="full">
+				<div class="row">
+					<input type="number" />
+					<input type="number" />
+				</div>
+				<div class="row">
+					<input type="number" />
+					<input type="number" />
+				</div>
+			</div>
+		</section>
+		<article>
+			<button id="calculate">Calcular</button>
+			<button id="clear">Resetar Matrizes</button>
+		</article>
+		<div class="popup">
+			<div class="popup-box">
+				<button class="close-button" id="closeButton">
+					<img src="./src/close.svg" alt="close" />
+				</button>
+				<p class="popup-text" id="popupText"></p>
+			</div>
+		</div>
 	</body>
 </html>

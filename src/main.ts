@@ -85,9 +85,9 @@ class Matriz {
 		let numbers2 = matrix(Matriz2.numbers);
 		let resultingArray: Array<Array<number>>;
 		let intermed = matrix(this.numbers);
-		
+
 		intermed = this.numbers;
-		resultingArray = intermed.div(numbers2)
+		resultingArray = intermed.div(numbers2);
 		return new Matriz(resultingArray);
 	}
 	multiplicate(Matriz2: Matriz) {
@@ -136,11 +136,11 @@ class Matriz {
 	}
 
 	determinant() {
-		let libraryMatrix = matrix(this.numbers)
-		
-		alert(libraryMatrix.det())
+		let libraryMatrix = matrix(this.numbers);
 
-		return new Matriz(this.numbers)
+		popup(libraryMatrix.det());
+
+		return new Matriz(this.numbers);
 	}
 
 	fillDiv(div: HTMLDivElement) {
@@ -175,6 +175,9 @@ const buttonCalculate = document.querySelector(
 	'#calculate'
 ) as HTMLButtonElement;
 const buttonClear = document.querySelector('#clear') as HTMLButtonElement;
+const buttonClosePopup = document.querySelector(
+	'#closeButton'
+) as HTMLButtonElement;
 const select = document.querySelector('select');
 
 const leftDiv = document.querySelector('div#left');
@@ -198,6 +201,14 @@ const changeOperation = () => {
 	}
 };
 
+const popup = (text: string) => {
+	(document.querySelector('.popup') as HTMLDivElement).style.display = 'flex';
+	(document.querySelector('#popupText') as HTMLParagraphElement).textContent =
+		text;
+};
+const closePopup = () => {
+	(document.querySelector('.popup') as HTMLDivElement).style.display = 'none';
+};
 const addCollumn = () => {
 	if (viewIsOperation) {
 		divs.forEach((div) => {
@@ -281,30 +292,41 @@ const createMatrizFromInput = (div: HTMLDivElement): Matriz => {
 
 const calculate = () => {
 	let newMatriz: Matriz = new Matriz([]);
-	const leftMatriz = createMatrizFromInput(leftDiv as HTMLDivElement);
-	const rightMatriz = createMatrizFromInput(rightDiv as HTMLDivElement);
-	const fullMatriz = createMatrizFromInput(fullDiv as HTMLDivElement);
-	console.log(fullMatriz);
-	
-	if (!leftMatriz.isValid || !rightMatriz.isValid) {
-		alert('Por favor, preencha todos os campos antes de tentar calcular');
-		throw new Error('Matrices are not valid');
-	}
-	switch (select?.value) {
-		case '+':
-			newMatriz = leftMatriz.sum(rightMatriz);
-			break;
-		case '-':
-			newMatriz = leftMatriz.subtract(rightMatriz);
-			break;
-		case '*':
-			// newMatriz = leftMatriz.multiplicate(rightMatriz) as Matriz;
-			break;
-		case '/':
-			newMatriz = leftMatriz.divide(rightMatriz) as Matriz;
-			break;
-		default:
-			newMatriz = fullMatriz.determinant();
+	if (!viewIsOperation) {
+		const fullMatriz = createMatrizFromInput(fullDiv as HTMLDivElement);
+		if (!fullMatriz.isValid) {
+			alert(
+				'Por favor, preencha todos os campos antes de tentar calcular'
+			);
+			throw new Error('Matrices are not valid');
+		}
+		newMatriz = fullMatriz.determinant();
+	} else {
+		const leftMatriz = createMatrizFromInput(leftDiv as HTMLDivElement);
+		const rightMatriz = createMatrizFromInput(rightDiv as HTMLDivElement);
+
+		if (!leftMatriz.isValid || !rightMatriz.isValid) {
+			alert(
+				'Por favor, preencha todos os campos antes de tentar calcular'
+			);
+			throw new Error('Matrices are not valid');
+		}
+		switch (select?.value) {
+			case '+':
+				newMatriz = leftMatriz.sum(rightMatriz);
+				break;
+			case '-':
+				newMatriz = leftMatriz.subtract(rightMatriz);
+				break;
+			case '*':
+				// newMatriz = leftMatriz.multiplicate(rightMatriz) as Matriz;
+				break;
+			case '/':
+				newMatriz = leftMatriz.divide(rightMatriz) as Matriz;
+				break;
+			default:
+				throw new Error('Invalid Operation');
+		}
 	}
 	newMatriz.fillDiv(leftDiv as HTMLDivElement);
 	let childrenDiv = [
@@ -329,6 +351,7 @@ console.log(addCollumn);
 }); */
 buttonSwitch.addEventListener('click', changeOperation);
 buttonCalculate.addEventListener('click', calculate);
+buttonClosePopup.addEventListener('click', closePopup);
 console.log(addCollumn);
 
 addCollumn();
